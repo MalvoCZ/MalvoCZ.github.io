@@ -1,106 +1,111 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <title>Franta Omáčka</title>
+  <title>Franta Omáčka - Osobní web</title>
   <style>
     body {
       background-color: black;
       color: white;
       font-family: Arial, sans-serif;
     }
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
+    .header {
+      text-align: center;
       padding: 20px;
     }
-    h1 {
+    .nav {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    .nav a {
+      padding: 10px;
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+      border: 1px solid white;
+      border-radius: 5px;
+    }
+    .nav a:hover {
+      background-color: white;
+      color: black;
+    }
+    .content {
+      margin-top: 30px;
+      padding: 0 20px;
+    }
+    .footer {
+      text-align: center;
+      padding: 20px;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: black;
+    }
+    .footer a {
+      color: white;
+      text-decoration: none;
+    }
+    .footer a:hover {
       color: gold;
     }
-    .tabs {
-      display: flex;
-    }
-    .tab {
-      flex: 1;
-      padding: 10px;
-      cursor: pointer;
-    }
-    .tab-content {
-      display: none;
-    }
-    .tab-content.active {
-      display: block;
-    }
-    .slideshow {
+    .image {
       width: 100%;
-      height: 300px;
-      overflow: hidden;
-      position: relative;
-    }
-    .slideshow img {
-      width: 100%;
-      height: 100%;
+      max-height: 400px;
       object-fit: cover;
-      position: absolute;
-      top: 0;
-      left: 0;
-      opacity: 0;
-      transition: opacity 1s ease-in-out;
-    }
-    .slideshow img.active {
-      opacity: 1;
     }
   </style>
-</head>
-<body>
-  <div class="container">
-    <h1>Informace o sobě</h1>
-    <div class="tabs">
-      <div class="tab" onclick="openTab('tab1')">Informace o sobě</div>
-      <div class="tab" onclick="openTab('tab2')">Informace o místě bydliště</div>
-      <div class="tab" onclick="openTab('tab3')">Moje zájmy</div>
-    </div>
-    <div id="tab1" class="tab-content active">
-      <p>
-        Jsem Franta Omáčka, vymyšlená postava se zajímavým životem. Můj příběh je plný dobrodružství a neobyčejných zážitků. Rád cestuji po světě, poznávám nové kultury a pořádám akce pro své přátele. Mám zvláštní smysl pro humor a nikdy se nenudím. Rád se věnuji sportům a kreativním aktivitám, jako je malování nebo hraní na kytaru. Jsem prostě unikátní osobnost!
-      </p>
-    </div>
-    <div id="tab2" class="tab-content">
-      <p>
-        Bydlím v krásné Praze, hlavním městě České republiky. Praha je jedno z nejstarších měst ve střední Evropě s bohatou historií, úchvatnou architekturou a kulturním dědictvím. Nachází se zde mnoho známých památek, jako je Pražský hrad, Karlův most a Staroměstské náměstí. Praha je také známá pro svou bohatou kulturní scénu, s mnoha divadly, muzei, galeriemi a festivaly. Je to skvělé místo k životu, plné zajímavých míst a aktivit.
-      </p>
-    </div>
-    <div id="tab3" class="tab-content">
-      <p>
-        Mezi mé zájmy patří cestování, dobrodružství a objevování nových kultur. Rád zkouším nové sporty, jako horolezectví nebo potápění. Jsem také velký filmový nadšenec a často navštěvuji kino nebo si doma užívám filmy různých žánrů. Rád čtu knihy, zejména sci-fi a fantasy literaturu. Kromě toho se rád zabavím s přáteli, hraju stolní hry nebo se věnuju kreativním aktivitám, jako je malování nebo psaní povídek. Mými zájmy jsou opravdu rozmanité a vždy se rád nechám inspirovat novými zážitky.
-      </p>
-    </div>
-  </div>
-  <div class="slideshow">
-    <img src="581D490E-74C6-4A99-94B9-5FB473F0DF7B.jpeg" alt="Obrázek 1" class="active">
-    <img src="7511EF35-1D68-4C25-9FEA-A0E1ACC35929.jpeg" alt="Obrázek 2">
-    <img src="8937CD4A-3536-4B49-BB95-79B06A7F44B2.jpeg" alt="Obrázek 3">
-  </div>
   <script>
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.slideshow img');
-    setInterval(() => {
-      slides[currentSlide].classList.remove('active');
-      currentSlide = (currentSlide + 1) % slides.length;
-      slides[currentSlide].classList.add('active');
-    }, 5000);
+    var images = [
+      "581D490E-74C6-4A99-94B9-5FB473F0DF7B.jpeg",
+      "7511EF35-1D68-4C25-9FEA-A0E1ACC35929.jpeg",
+      "8937CD4A-3536-4B49-BB95-79B06A7F44B2.jpeg"
+    ];
+    var currentIndex = 0;
+    setInterval(changeImage, 5000);
 
-    function openTab(tabId) {
-      const tabs = document.querySelectorAll('.tab-content');
-      tabs.forEach(tab => {
-        if (tab.id === tabId) {
-          tab.classList.add('active');
-        } else {
-          tab.classList.remove('active');
-        }
-      });
+    function changeImage() {
+      var image = document.getElementById("header-image");
+      currentIndex = (currentIndex + 1) % images.length;
+      image.src = images[currentIndex];
     }
   </script>
+</head>
+<body>
+  <div class="header">
+    <h1>Vítejte na mém osobním webu</h1>
+    <img id="header-image" class="image" src="581D490E-74C6-4A99-94B9-5FB473F0DF7B.jpeg">
+  </div>
+  <div class="nav">
+    <a href="#about">Informace o sobě</a>
+    <a href="#location">Informace o místě bydliště</a>
+    <a href="#interests">Moje zájmy</a>
+    <a href="#links">Odkazy</a>
+    <a href="#contacts">Kontakty</a>
+  </div>
+  <div class="content">
+    <h2 id="about">Informace o sobě</h2>
+    <p>Jsem Franta Omáčka, vymyšlená postava s bohatým životním příběhem. Rád cestuji po světě a objevuji nová místa. Baví mě sport, zejména fotbal a plavání. Miluji kreativitu a rád tvořím vlastní obsah, jako jsou malby a sochy. Jsem také nadšený kuchař a rád experimentuji s novými recepty.</p>
+    <h2 id="location">Informace o místě bydliště</h2>
+    <p>Jsem hrdý obyvatel Prahy, krásného historického města s bohatou kulturou a zajímavou historií. V Praze rád trávím čas procházkami po Starém Městě a objevováním skrytých uliček.</p>
+    <h2 id="interests">Moje zájmy</h2>
+    <p>Mými hlavními zájmy jsou cestování, sport, umění a kulinářství. Rád zkoumám nové destinace a poznávám různé kultury. Sport mě udržuje ve formě a nabíjí energií. Rád navštěvuji galerie a muzea a obdivuji různé formy umění. Kuchaření je pro mě způsob relaxace a kreativity.</p>
+    <h2 id="links">Odkazy</h2>
+    <ul>
+      <li><a href="http://www.example.com" target="_blank">www.example.com</a> - Ukázkový odkaz 1</li>
+      <li><a href="http://www.samplelink.com" target="_blank">www.samplelink.com</a> - Ukázkový odkaz 2</li>
+      <li><a href="http://www.demo.com" target="_blank">www.demo.com</a> - Ukázkový odkaz 3</li>
+    </ul>
+    <h2 id="contacts">Kontakty</h2>
+    <p>Můžete mě kontaktovat na následujících adresách:</p>
+    <ul>
+      <li>Email: franta.omacka@example.com</li>
+      <li>Telefon: +420 123 456 789</li>
+    </ul>
+  </div>
+  <div class="footer">
+    <p>&copy; 2023 Franta Omáčka. Všechna práva vyhrazena. | Obrázky: 581D490E-74C6-4A99-94B9-5FB473F0DF7B.jpeg, 7511EF35-1D68-4C25-9FEA-A0E1ACC35929.jpeg, 8937CD4A-3536-4B49-BB95-79B06A7F44B2.jpeg</p>
+  </div>
 </body>
 </html>
 
