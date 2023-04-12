@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Franta Omáčka - Osobní web</title>
+  <title>Franta Omáčka</title>
   <style>
     body {
       background-color: black;
@@ -9,103 +9,105 @@
       font-family: Arial, sans-serif;
     }
     .header {
-      text-align: center;
       padding: 20px;
+      text-align: center;
     }
     .nav {
       display: flex;
       justify-content: center;
-      margin-top: 20px;
+      background-color: gold;
+      padding: 10px;
     }
     .nav a {
-      padding: 10px;
-      color: white;
+      color: black;
+      padding: 8px 16px;
       text-decoration: none;
       margin: 0 10px;
-      border: 1px solid white;
-      border-radius: 5px;
     }
     .nav a:hover {
-      background-color: white;
-      color: black;
+      background-color: black;
+      color: gold;
     }
     .content {
-      margin-top: 30px;
-      padding: 0 20px;
+      padding: 20px;
     }
     .footer {
+      background-color: gold;
+      padding: 10px;
       text-align: center;
-      padding: 20px;
       position: fixed;
       bottom: 0;
       left: 0;
       right: 0;
-      background-color: black;
     }
-    .footer a {
-      color: white;
-      text-decoration: none;
+    .image-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
     }
-    .footer a:hover {
-      color: gold;
-    }
-    .image {
-      width: 100%;
-      max-height: 400px;
-      object-fit: cover;
+    .image-container img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
     }
   </style>
   <script>
-    var images = [
-      "581D490E-74C6-4A99-94B9-5FB473F0DF7B.jpeg",
-      "7511EF35-1D68-4C25-9FEA-A0E1ACC35929.jpeg",
-      "8937CD4A-3536-4B49-BB95-79B06A7F44B2.jpeg"
-    ];
-    var currentIndex = 0;
-    setInterval(changeImage, 5000);
-
+    // Funkce pro změnu obrázku každých 5 sekund
     function changeImage() {
-      var image = document.getElementById("header-image");
-      currentIndex = (currentIndex + 1) % images.length;
-      image.src = images[currentIndex];
+      var images = ["image1.jpg", "image2.jpg", "image3.jpg"]; // seznam obrázků
+      var currentIndex = 0; // aktuální index obrázku
+
+      setInterval(function() {
+        document.getElementById("image").src = images[currentIndex]; // změna zobrazovaného obrázku
+        currentIndex = (currentIndex + 1) % images.length; // inkrementace indexu a zajištění zacyklení
+      }, 5000); // interval 5 sekund
     }
   </script>
 </head>
-<body>
+<body onload="changeImage()">
   <div class="header">
-    <h1>Vítejte na mém osobním webu</h1>
-    <img id="header-image" class="image" src="581D490E-74C6-4A99-94B9-5FB473F0DF7B.jpeg">
+    <h1>Informace o sobě</h1>
   </div>
   <div class="nav">
-    <a href="#about">Informace o sobě</a>
-    <a href="#location">Informace o místě bydliště</a>
-    <a href="#interests">Moje zájmy</a>
+    <a href="#about">O mně</a>
+    <a href="#location">Bydliště</a>
+    <a href="#interests">Zájmy</a>
     <a href="#links">Odkazy</a>
     <a href="#contacts">Kontakty</a>
   </div>
-  <div class="content">
-    <h2 id="about">Informace o sobě</h2>
-    <p>Jsem Franta Omáčka, vymyšlená postava s bohatým životním příběhem. Rád cestuji po světě a objevuji nová místa. Baví mě sport, zejména fotbal a plavání. Miluji kreativitu a rád tvořím vlastní obsah, jako jsou malby a sochy. Jsem také nadšený kuchař a rád experimentuji s novými recepty.</p>
-    <h2 id="location">Informace o místě bydliště</h2>
-    <p>Jsem hrdý obyvatel Prahy, krásného historického města s bohatou kulturou a zajímavou historií. V Praze rád trávím čas procházkami po Starém Městě a objevováním skrytých uliček.</p>
-    <h2 id="interests">Moje zájmy</h2>
-    <p>Mými hlavními zájmy jsou cestování, sport, umění a kulinářství. Rád zkoumám nové destinace a poznávám různé kultury. Sport mě udržuje ve formě a nabíjí energií. Rád navštěvuji galerie a muzea a obdivuji různé formy umění. Kuchaření je pro mě způsob relaxace a kreativity.</p>
-    <h2 id="links">Odkazy</h2>
+  <div class="content" id="about">
+    <h2>Informace o mně</h2>
+    <p>Jsem Franta Omáčka, vymyšlená postava s různými dobrodružstvími. Můj život je plný neuvěřitelných příběhů a zážitků. Rád se bavím, poznávám nové lidi a objevuji nová místa.</p>
+  </div>
+  <div class="content" id="location">
+    <h2>Informace o místě bydliště</h2>
+    <p>Mým domovem je krásné město Mělník, které se nachází v České republice. Mělník je historické město ležící na soutoku dvou řek, Labe a Vltavy. Je známé pro své nádherné zámky, památky a výborné víno z místních vinic.
+
+  </div>
+  <div class="content" id="interests">
+    <h2>Zájmy</h2>
+    <p>Mými zájmy jsou dobrodružství, cestování, objevování nových kultur a tradic, sportování, hraní na hudební nástroje a čtení knih. Rád se zapojuji do různých aktivit a poznávám nové věci.</p>
+  </div>
+  <div class="content" id="links">
+    <h2>Odkazy</h2>
     <ul>
-      <li><a href="http://www.example.com" target="_blank">www.example.com</a> - Ukázkový odkaz 1</li>
-      <li><a href="http://www.samplelink.com" target="_blank">www.samplelink.com</a> - Ukázkový odkaz 2</li>
-      <li><a href="http://www.demo.com" target="_blank">www.demo.com</a> - Ukázkový odkaz 3</li>
+      <li><a href="https://www.example.com">Můj blog</a></li>
+      <li><a href="https://www.example.com/social-media">Můj Instagram</a></li>
+      <li><a href="https://www.example.com/portfolio">Můj portfolio</a></li>
     </ul>
-    <h2 id="contacts">Kontakty</h2>
-    <p>Můžete mě kontaktovat na následujících adresách:</p>
+  </div>
+  <div class="content" id="contacts">
+    <h2>Kontakty</h2>
+    <p>Můžete mě kontaktovat na následujících kontaktních údajích:</p>
     <ul>
       <li>Email: franta.omacka@example.com</li>
       <li>Telefon: +420 123 456 789</li>
+      <li>Adresa: Ulice 123, Mělník, 12345</li>
     </ul>
   </div>
   <div class="footer">
-    <p>&copy; 2023 Franta Omáčka. Všechna práva vyhrazena. | Obrázky: 581D490E-74C6-4A99-94B9-5FB473F0DF7B.jpeg, 7511EF35-1D68-4C25-9FEA-A0E1ACC35929.jpeg, 8937CD4A-3536-4B49-BB95-79B06A7F44B2.jpeg</p>
+    <p>Vytvořeno Frantou Omáčkou, 2023</p>
   </div>
 </body>
 </html>
-
