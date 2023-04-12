@@ -79,7 +79,7 @@
   <div class="slideshow">
     <img src="581D490E-74C6-4A99-94B9-5FB473F0DF7B.jpeg" alt="Obrázek 1" class="active">
     <img src="7511EF35-1D68-4C25-9FEA-A0E1ACC35929.jpeg" alt="Obrázek 2">
-    <img src="obrazek3.jpg" alt="Obrázek 3">
+    <img src="8937CD4A-3536-4B49-BB95-79B06A7F44B2.jpeg" alt="Obrázek 3">
   </div>
   <script>
     let currentSlide = 0;
