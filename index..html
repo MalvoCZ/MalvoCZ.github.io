@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Franta Omáčka</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    h1 {
+      color: gold;
+    }
+    .tabs {
+      display: flex;
+    }
+    .tab {
+      flex: 1;
+      padding: 10px;
+      cursor: pointer;
+    }
+    .tab-content {
+      display: none;
+    }
+    .tab-content.active {
+      display: block;
+    }
+    .slideshow {
+      width: 100%;
+      height: 300px;
+      overflow: hidden;
+      position: relative;
+    }
+    .slideshow img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+    .slideshow img.active {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Informace o sobě</h1>
+    <div class="tabs">
+      <div class="tab" onclick="openTab('tab1')">Informace o sobě</div>
+      <div class="tab" onclick="openTab('tab2')">Informace o místě bydliště</div>
+      <div class="tab" onclick="openTab('tab3')">Moje zájmy</div>
+    </div>
+    <div id="tab1" class="tab-content active">
+      <p>
+        Jsem Franta Omáčka, vymyšlená postava se zajímavým životem. Můj příběh je plný dobrodružství a neobyčejných zážitků. Rád cestuji po světě, poznávám nové kultury a pořádám akce pro své přátele. Mám zvláštní smysl pro humor a nikdy se nenudím. Rád se věnuji sportům a kreativním aktivitám, jako je malování nebo hraní na kytaru. Jsem prostě unikátní osobnost!
+      </p>
+    </div>
+    <div id="tab2" class="tab-content">
+      <p>
+        Bydlím v krásné Praze, hlavním městě České republiky. Praha je jedno z nejstarších měst ve střední Evropě s bohatou historií, úchvatnou architekturou a kulturním dědictvím. Nachází se zde mnoho známých památek, jako je Pražský hrad, Karlův most a Staroměstské náměstí. Praha je také známá pro svou bohatou kulturní scénu, s mnoha divadly, muzei, galeriemi a festivaly. Je to skvělé místo k životu, plné zajímavých míst a aktivit.
+      </p>
+    </div>
+    <div id="tab3" class="tab-content">
+      <p>
+        Mezi mé zájmy patří cestování, dobrodružství a objevování nových kultur. Rád zkouším nové sporty, jako horolezectví nebo potápění. Jsem také velký filmový nadšenec a často navštěvuji kino nebo si doma užívám filmy různých žánrů. Rád čtu knihy, zejména sci-fi a fantasy literaturu. Kromě toho se rád zabavím s přáteli, hraju stolní hry nebo se věnuju kreativním aktivitám, jako je malování nebo psaní povídek. Mými zájmy jsou opravdu rozmanité a vždy se rád nechám inspirovat novými zážitky.
+      </p>
+    </div>
+  </div>
+  <div class="slideshow">
+    <img src="obrazek1.jpg" alt="Obrázek 1" class="active">
+    <img src="obrazek2.jpg" alt="Obrázek 2">
+    <img src="obrazek3.jpg" alt="Obrázek 3">
+  </div>
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slideshow img');
+    setInterval(() => {
+      slides[currentSlide].classList.remove('active');
+      currentSlide = (currentSlide + 1) % slides.length;
+      slides[currentSlide].classList.add('active');
+    }, 5000);
+
+    function openTab(tabId) {
+      const tabs = document.querySelectorAll('.tab-content');
+      tabs.forEach(tab => {
+        if (tab.id === tabId) {
+          tab.classList.add('active');
+        } else {
+          tab.classList.remove('active');
+        }
+      });
+    }
+  </script>
+</body>
+</html>
